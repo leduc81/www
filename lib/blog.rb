@@ -83,6 +83,10 @@ class Blog
     end
   end
 
+  def initialize(locale)
+    @locale = locale
+  end
+
   def all
     files.reverse.map do |file|
       Post.new(file)
@@ -104,6 +108,10 @@ class Blog
   private
 
   def files
-    Dir["#{File.dirname(__FILE__)}/../posts/*.md"].sort
+    if @locale == :fr
+      Dir["#{File.dirname(__FILE__)}/../posts/*.md"].sort
+    else
+      Dir["#{File.dirname(__FILE__)}/../posts/en/*.md"].sort
+    end
   end
 end

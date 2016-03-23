@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'sp', to: redirect('sao-paulo')
   get 'en', to: redirect('/')
   get 'en/*path', to: redirect { |path_params, req| path_params[:path] }
-  get 'en/blog/*path', to: redirect { |path_params, req| "blog/#{path_params[:path]}" }
   get 'fr/blog/*path', to: redirect { |path_params, req| "blog/#{path_params[:path]}" }
 
   get 'ondemand/*path', to: redirect { |path_params, req| "https://ondemand.lewagon.org/#{req.fullpath.gsub("/ondemand/", "")}" }
@@ -57,9 +56,12 @@ Rails.application.routes.draw do
     resources :students, only: [:show]
   end
 
-  get "blog", to: 'posts#index'
-  get "blog/rss", to: 'posts#rss', defaults: { format: :xml }
-  get "blog/:slug", to: 'posts#show'
+  get "blog", to: 'posts#index', locale: :fr, as: :posts_fr
+  get "blog/en", to: 'posts#index', locale: :en, as: :posts_en
+  get "blog/rss", to: 'posts#rss', defaults: { format: :xml }, locale: :fr
+  get "blog/en/rss", to: 'posts#rss', defaults: { format: :xml }, locale: :en
+  get "blog/:slug", to: 'posts#show', locale: :fr, as: :post_fr
+  get "blog/en/:slug", to: 'posts#show', locale: :en, as: :post_en
 
   resources :subscribes, only: :create
 

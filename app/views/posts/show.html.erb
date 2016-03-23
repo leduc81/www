@@ -12,7 +12,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
       <article class="blog-post">
         <h1><%= @post.metadata[:title].html_safe %></h1>
         <%= render 'written_by', post: @post, date_format: :long %>

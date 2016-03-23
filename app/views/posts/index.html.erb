@@ -1,40 +1,42 @@
 <% content_for(:title) do %>
-  Le Wagon - Blog de culture technique et entrepreneuriale
+  <%= t ".title" %>
 <% end %>
 
 <div class="posts">
   <div class="container">
-    <% @posts.each_slice(3) do |posts| %>
-      <div class="row">
-        <% posts.each do |post| %>
-          <div class="col-lg-4 col-sm-4">
-            <article class="postcard element">
-              <% if post.metadata[:thumbnail] %>
-                <a href="/blog/<%= post.slug %>" class="link-img" style="background-image: url('<%= asset_path "blog/#{post.metadata[:thumbnail]}" %>')">
-                  <div class="postcard-filter"></div>
-                </a>
+    <div class="col-sm-12 col-md-6 col-md-offset-3">
+
+      <h1 class="text-center popular-stories"><%= t ".all_posts" %></h1>
+      <% @posts.each do |post| %>
+        <% path = (locale == :fr) ? "/blog/#{post.slug}" : "/blog/en/#{post.slug}" %>
+          <article class="postcard">
+
+            <div class="postcard-author">
+              <% if post.metadata[:author_picture] %>
+                <%= image_tag "authors/#{post.metadata[:author_picture]}" %>
+              <% else %>
+                <%= image_tag "authors/lewagon.png" %>
               <% end %>
-              <div class="content">
-                <div class="centered">
-                  <h2>
-                    <a href="/blog/<%= post.slug %>">
-                      <%= post.metadata[:title].html_safe %>
-                    </a>
-                  </h2>
-                  <span class="author">posted by <strong><%= post.metadata[:author]%></strong></span>
-                  <% if post.metadata[:description] %>
-                    <p class="description"><%= post.metadata[:description].truncate(160) %></p>
-                  <% end %>
-                </div>
-              </div>
-              <div class="link-post-container text-right">
-                <a href="/blog/<%= post.slug %>" class="link-post"><i class="fa fa-eye"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+              <%= render 'written_by', post: post, date_format: :long %>
+            </div>
+
+            <% if post.metadata[:thumbnail] %>
+              <a href="<%= path %>" class="link-img" style="background-image: url('<%= asset_path "blog/#{post.metadata[:thumbnail]}" %>')">
+                <div class="postcard-filter"></div>
+              </a>
+            <% end %>
+
+            <div class="content">
+              <h2>
+                <%= post.metadata[:title].html_safe %>
+              </h2>
+              <% if post.metadata[:description] %>
+                <p class="description"><%= post.metadata[:description].truncate(160) %></p>
+              <% end %>
+            </div>
+            <a href="<%= path %>" class="link-post">Read more...</a>
+          </article>
+      <% end %>
+    </div>
   </div>
 </div>

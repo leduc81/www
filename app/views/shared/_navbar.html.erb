@@ -57,6 +57,8 @@
         <%= link_to t(".alumni", default: "Alumni"), alumni_path, class: " hidden-xs navbar-wagon-link", data: {text: t(".alumni", default: "Alumni")} %>
         <hr class='hidden-xs'>
         <%= link_to t(".stories"), stories_path, class: " hidden-xs navbar-wagon-link", data: {text: t(".stories")} %>
+        <hr class='hidden-xs'>
+        <%= link_to "Blog", send(:"posts_#{locale}_path"), class: " hidden-xs navbar-wagon-link" %>
         <div class="left">
           <%= link_to t(".apply"), send(:"apply_#{locale}_path"), class: 'navbar-wagon-link-cta' %>
         </div>

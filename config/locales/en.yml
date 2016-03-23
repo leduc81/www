@@ -27,7 +27,7 @@ en:
         on_site: On site
         fullstack_program: FullStack - 9-week intensive program
       apply: Apply Now
-      stories: Testimonials
+      stories: Stories
     testimonials:
       what_our_students_say: What our students say
     features:
@@ -84,6 +84,10 @@ en:
     read_article: Read the post
     written_html: "Published by <a href='%{href}'>%{author}</a> on %{date}"
     moreposts: Take a tour on other cool posts
+  posts:
+    index:
+      all_posts: "Best tutorials & posts"
+      title: "Le Wagon - Blog of tech culture for entrepreneurs"
   pages:
     home:
       title: "Le Wagon - Learn to code - Bootcamp in Ruby on Rails, HTML, CSS and JavaScript"
@@ -276,6 +280,8 @@ en:
       language_pt-BR: 'Brazilian Portuguese'
       price: 'Price'
   stories:
+    index:
+      our_stories: "Discover our alumni stories"
     show:
       other_testimonials: Other Testimonials
       continue: Would you like to continue?

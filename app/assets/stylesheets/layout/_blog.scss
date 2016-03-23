@@ -1,26 +1,51 @@
 .blog-post {
   padding-bottom: 4em;
   h1 {
-    font-size: 27px;
     font-weight: bold;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .written {
+    text-align: center;
   }
   p {
-    line-height: 24px;
-    font-weight: 200;
+    line-height: 32px;
     color: $gray-darker;
+    font-weight: 200;
+    color: #222222;
+    font-size: 20px;
+    margin: 30px 0;
   }
-  h2 {
+  blockquote p {
+    margin: 0;
+    color: #666666;
     font-size: 19px;
+  }
+  blockquote {
+    border-left: 3px solid #3D3D3D;
+    margin-left: -25px;
+  }
+  h2, h3 {
+    font-size: 28px;
     font-weight: bold;
   }
   img {
     max-width: 100%;
+    margin: 30px 0;
   }
   a {
     color: $blue;
   }
   iframe {
     width: 100% !important;
+  }
+  ul {
+    font-weight: lighter !important;
+    font-size: 19px !important;
+  }
+  li {
+    margin-bottom: 20px !important;
   }
 }
 
@@ -31,23 +56,18 @@
 .postcard {
   margin-top: 2em;
   background-color: #fff;
-  box-shadow: 1px 1px 3px #EAEAEA;
+  box-shadow: 1px 1px 1px #EAEAEA;
   border-radius: 2px;
+  padding: 10px;
+  border: 1px solid #ECE5E5;
+  padding-bottom: 15px;
 
-  .content {
-    padding: 15px;
-    min-height: 220px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 20px;
-  }
   .description {
     font-weight: 100;
     font-size: 15px;
     letter-spacing: 0px;
-    color: #7D7D7D;
-    margin-top: 20px;
+    color: #5A5858;
+    margin-top: 10px;
   }
   h2 {
     font-size: 19px;
@@ -96,30 +116,6 @@
     padding-right: 20px;
   }
 
-  .link-post {
-    width: 40px;
-    line-height: 40px;
-    border-radius: 10px;
-    font-size: 20px;
-    display: inline-block;
-    margin: auto;
-    margin-bottom: 1em;
-    height: 40px;
-    // background-color: #DEDEDE;
-    border-radius: 2px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #B3B3B3;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
-    border-radius: 50%;
-
-     &:hover{
-      text-decoration: none;
-      background-color: #57a9ed;
-      color: white;
-     }
-  }
 
   .infos {
     position: absolute;
@@ -132,4 +128,30 @@
     text-align: center;
     padding: 4px 0;
   }
+  .link-post {
+    color: #B8B8B8;
+    font-weight: 100;
+    font-size: 14px;
+  }
 }
+
+.postcard-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: lighter;
+  font-size: 15px;
+  a {
+    color: #00ab6b;
+    &:hover {
+      color: #1c9963;
+    }
+  }
+}
+.postcard-author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+

@@ -88,6 +88,10 @@ fr:
     read_article: Lire l'article
     written_html: "Publié par <a href='%{href}'>%{author}</a> le %{date}"
     moreposts: Continuez la visite !
+  posts:
+    index:
+      all_posts: "Nos meilleurs articles"
+      title: "Le Wagon - Blog de culture technique et entrepreneuriale"
   pages:
     home:
       title: "Le Wagon - Formation Développeur Web - Coding Bootcamp"
@@ -268,6 +272,8 @@ fr:
       language_pt-BR: 'Portugais brésilien'
       price: 'Prix'
   stories:
+    index:
+      our_stories: "Histoires d'alumni"
     show:
       other_testimonials: Autres Témoignages
       continue: Continuer la lecture
